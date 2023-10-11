@@ -5,7 +5,7 @@
 	//create the "container" with this applied to any row or any 100% width element
 	padding: 0 1rem;
 
-	max-width: 1600px;
+	max-width: 1370px;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -20,6 +20,7 @@
 	}	
 	@include media(">wideScreen") {
 		padding: 0 8rem;
+		max-width: 1650px;
 	}	
 }
 
@@ -45,3 +46,8 @@
 }
 
 img[data-sizes="auto"] { display: block; width: 100%; }
+
+.color-dark-bg{
+	background-color: #000;
+	color: #fff;
+}

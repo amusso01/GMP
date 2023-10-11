@@ -114,7 +114,7 @@ function WPSeed_gtm($type) {
 
 
 /*==================================================================================
-  3.0 ACCESS TOOLKIT
+  3.0 IMAGE
 ==================================================================================*/
 
 
@@ -145,4 +145,12 @@ function WPSeed_gtm($type) {
   
 }
 
+
+// <figure>
+// <img data-sizes="auto"
+// data-srcset="bml_the_image_srcset($author['image']) "
+// data-parent-fit="cover"
+// style="max-width: 100%; max-height: 100%;"
+// class="lazyload" alt="author image" />
+// </figure>
 

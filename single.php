@@ -11,14 +11,13 @@ get_header();
 ?>
 
 	<div id="primary" class="container content-area">
-		<div class="row">
 			<main id="main" class="site-main sidebar">
 
 			<?php
 			while ( have_posts() ) :
 				the_post();
 
-				get_template_part( 'template-parts/content', get_post_type() );
+				the_content( );
 
 				the_post_navigation();
 
@@ -32,9 +31,6 @@ get_header();
 
 			</main><!-- #main -->
 
-			<?php get_sidebar(); ?>
-
-		</div>
 	</div><!-- #primary -->
 
 <?php

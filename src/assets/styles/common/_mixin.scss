@@ -129,14 +129,14 @@
 	backface-visibility: hidden;
 	-moz-osx-font-smoothing: grayscale;
 	position: relative;
-	overflow: hidden;
+	// overflow: hidden;
 
 	&::before {
 		content: "";
 		position: absolute;
 		width: 100%;
-		height: 2px;
-		bottom: 0;
+		height: 1px;
+		bottom: -1px;
 		left: 0;
 		background-color: currentColor;
 		visibility: hidden;

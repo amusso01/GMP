@@ -94,7 +94,11 @@ module.exports = merge(commonConfig, {
 				jpegtran: { progressive: true },
 				gifsicle: { optimizationLevel: 1 },
 				svgo: {}
-      })
+      }),
+			new CopyWebpackPlugin([{
+				from: path.resolve(__dirname, '../assets/webfonts'),
+				to: path.resolve(__dirname, '../../dist/webfonts')
+			}])
     ]
 
 });//Config end

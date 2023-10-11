@@ -3,6 +3,8 @@
 // Vendors
 @import "~aos/dist/aos";
 @import "vendors/lazysizes";
+@import "~@fortawesome/fontawesome-free/css/solid";
+@import "~@fortawesome/fontawesome-free/css/fontawesome";
 
 
 // Common
@@ -15,9 +17,10 @@
 @import "common/helper";
 
 // Components
-@import "components/search-form";
+// @import "components/search-form";
+@import "components/info-bar";
 @import "components/buttons";
-@import "components/nav";
+@import "components/header";
 @import "components/footer";
 
 // Templates

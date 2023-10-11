@@ -1,0 +1,28 @@
+.main-info-bar__grid{
+  display: flex;
+}
+
+.main-info-bar__item{
+  padding: 16px 30px;
+  border-right: 1px solid white;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  display: flex;
+  align-items: center;
+
+  i{
+    margin-right:10px;
+    font-size: 23px;
+  }
+
+  &:last-of-type{
+    margin-left: auto;
+    border-left: 1px solid white;
+
+    img{
+      display: inline-block;
+      margin-right: 2px;
+    }
+  }
+}
