@@ -25,7 +25,7 @@ $email = get_field( 'email', 'option' );
             </div>
             <div class="main-info-bar__item">
                 <i class="fa-solid fa-location-dot"></i>
-                <?= $address ?>
+                <div role="button" data-micromodal-trigger="modal-map"><?= $address ?></div>
             </div>
             <div class="main-info-bar__item">
                 <i class="fa-solid fa-envelope"></i>

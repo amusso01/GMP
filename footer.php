@@ -21,7 +21,9 @@
 
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
+<!-- MAP MOdal -->
+<?php get_template_part( 'components/modal/map' ); ?>
 
+<?php wp_footer(); ?>
 </body>
 </html>

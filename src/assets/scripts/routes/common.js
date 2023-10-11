@@ -1,6 +1,7 @@
 import smoothscroll from "smoothscroll-polyfill";
 // import hamburger from "./../part/hamburger";
-import { Aos } from "aos";
+import Aos from "aos";
+import MicroModal from 'micromodal';
 
 // https://github.com/aFarkas/lazysizes
 import 'lazysizes';
@@ -15,6 +16,7 @@ export default {
 		smoothscroll.polyfill()
 
 		Aos.init()
+		MicroModal.init();
 
 		// Hamburger event listener
 		hamburger()
