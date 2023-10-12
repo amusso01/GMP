@@ -88,6 +88,53 @@ add_theme_support('editor-styles');
 add_editor_style( './dist/styles/root.css' );
 add_editor_style( './dist/styles/main.css' );
 
+
+/*==================================================================================
+wrapp certain block with div
+==================================================================================*/
+function wporg_block_wrapper( $block_content, $block ) {
+	if ( $block['blockName'] === 'core/paragraph' ) {
+			$content = '<div class="wp-block-paragraph narrow-width__container content-block">';
+			$content .= $block_content;
+			$content .= '</div>';
+			return $content;
+	} elseif ( $block['blockName'] === 'core/heading' ) {
+			$content = '<div class="wp-block-title narrow-width__container content-block">';
+			$content .= $block_content;
+			$content .= '</div>';
+			return $content;
+	}elseif ( $block['blockName'] === 'core/image' ) {
+		$content = '<div class="wp-block-image narrow-width__container content-block">';
+		$content .= $block_content;
+		$content .= '</div>';
+		return $content;
+	}elseif ( $block['blockName'] === 'core/separator' ) {
+		$content = '<div class="wp-block-separator narrow-width__container content-block">';
+		$content .= $block_content;
+		$content .= '</div>';
+		return $content;
+	}elseif ( $block['blockName'] === 'core/list' ) {
+		$content = '<div class="wp-block-list narrow-width__container content-block">';
+		$content .= $block_content;
+		$content .= '</div>';
+		return $content;
+	}elseif ( $block['blockName'] === 'core/table' ) {
+		$content = '<div class="wp-block-table content-block">';
+		$content .= $block_content;
+		$content .= '</div>';
+		return $content;
+	}elseif ( $block['blockName'] === 'core/embed' ) {
+		$content = '<div class="wp-block-embed__wrapper content-block">';
+		$content .= $block_content;
+		$content .= '</div>';
+		return $content;
+	}
+
+	return $block_content;
+}
+
+add_filter( 'render_block', 'wporg_block_wrapper', 10, 2 );
+
 /*==================================================================================
 Register new category in guttenberg block
 ==================================================================================*/

@@ -45,6 +45,21 @@ $color__bright: #ffffff;
 $color__grey: #555;
 $color__light-grey:  #8c8c8c;
 
+$colors: (red, #ff0000),  (white, #ffffff), (black, #000000), (grey, $color__grey), (light-grey, $color__light-grey);
+
+/* Color Options
+--------------------------------------------- */
+
+@each $name, $color in $colors {
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}
+
 /*==================================================================================
   BUTTONS
 ==================================================================================*/

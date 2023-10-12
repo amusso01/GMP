@@ -32,7 +32,17 @@ footer.site-footer {
 		display: flex;
 
 		li{
-			padding: 10px 6px;
+			padding: 10px 0;
+			&::after{
+				content: "|";
+				padding: 0 7px;
+			}
+
+			&:last-of-type{
+				&::after{
+					display: none;
+				}
+			}
 		}
 	}
 }

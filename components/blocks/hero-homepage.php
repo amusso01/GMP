@@ -80,7 +80,7 @@ function gmp_gutenblock_heroBlockHome() {
 
         <!-- If we need navigation buttons -->
         <button role="button" class="swiper-button-prev swiper-button"></button>
-        <button role="button" class="swiper-button-next swiper-button"></button>
+        <button role="button" class="swiper-button-prev swiper-button"></button>
 
       </div>
 
