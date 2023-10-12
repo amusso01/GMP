@@ -1,0 +1,44 @@
+.site-header__inner{
+  position: relative;
+}
+
+.site-header__logo{
+  position: absolute;
+  top: 10px;
+  padding: 8px;
+  z-index: 10;
+  background-color: white;
+}
+
+.site-header__menu {
+  >ul{
+    display: flex;
+    justify-content: flex-end;
+
+    >.menu-item{
+      padding: 41px 22px;
+
+      >a{
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: $color__grey;
+        transition: color .4s;
+        &:hover{
+          color: $color__link;
+        }
+        &::before{
+          display: none;
+        }
+      }
+
+      &.current-menu-item{
+
+        >a{
+          color: $color__link;
+        }
+      }
+    }
+  }
+}
+

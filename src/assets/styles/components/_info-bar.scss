@@ -25,4 +25,18 @@
       margin-right: 2px;
     }
   }
+
+  [data-micromodal-trigger]{
+    @include animated-underline;
+  }
+
+  [data-micromodal-trigger]:hover{
+    @include animated-underline-hover;
+  }
+}
+
+.language-menu{
+  a::before{
+    display: none;
+  }
 }
