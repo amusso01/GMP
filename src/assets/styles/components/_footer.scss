@@ -1,3 +1,38 @@
 footer.site-footer {
 	background-color: $color__footerBg;
+	padding: 25px 0;
+}
+
+.site-footer__wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.site-footer__item{
+	font-size: 13px;
+	font-weight: 500;
+
+	.copyright{
+		font-weight: 600;
+		margin-bottom: 6px;
+ 	}
+
+	.address{
+	 a{
+		color: $color__link;
+		&:hover{
+			text-decoration: underline;
+		}
+	 }
+	}
+
+	ul.footer-menu{
+		font-weight: 600;
+		display: flex;
+
+		li{
+			padding: 10px 6px;
+		}
+	}
 }
