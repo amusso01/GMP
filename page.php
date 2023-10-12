@@ -16,23 +16,8 @@ get_header();
 ?>
 
 <main role="main" class="site-main page-main">
-<?php
-
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
-
-		get_template_part( 'template-parts/content', 'page' );
-
-
-	endwhile; // End of the loop.
-
-else :
-
-	get_template_part( 'template-parts/content', 'none' );
-
-endif;
-?>
+	
+	<?php the_content(); ?>
 
 </main><!-- #main -->
 

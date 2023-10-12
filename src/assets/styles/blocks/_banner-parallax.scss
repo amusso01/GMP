@@ -1,0 +1,22 @@
+
+.block-banner-parallax__wrapper{
+  position: relative;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin: 20px 0 40px;
+
+  &::before{
+    background-color: #FF0000;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0.7;
+  }
+}

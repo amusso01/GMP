@@ -85,6 +85,7 @@ add_action('enqueue_block_editor_assets', 'my_block_plugin_editor_scripts');
 Register back-end CSS editor
 ==================================================================================*/
 add_theme_support('editor-styles');
+add_editor_style( './dist/styles/root.css' );
 add_editor_style( './dist/styles/main.css' );
 
 /*==================================================================================
@@ -110,3 +111,6 @@ LOAD CUSTOM ACF-GUTENBERG-BLOCKS
 ==================================================================================*/
 
 require get_template_directory().'/components/blocks/hero-page.php';
+require get_template_directory().'/components/blocks/image-text.php';
+require get_template_directory().'/components/blocks/hero-homepage.php';
+require get_template_directory().'/components/blocks/banner-parallax.php';

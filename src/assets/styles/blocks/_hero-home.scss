@@ -1,0 +1,44 @@
+.block-hero-home__wrapper{
+  .swiper-slide{
+    figure{
+      position: relative;
+      height: 80vh;
+      width: 100%;
+      max-height: 770px;
+
+      img{
+        @extend %cover;
+        object-fit: cover;
+      }
+    }
+  }
+  .swiper-button{
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    border: none;
+    width: 84px;
+    height: 84px;
+    color: #fff;
+    transform: scale(0.9);
+    transform-origin: center center;
+    transition: all ease .3s;
+
+    &:hover{
+      background-color: rgba($color: #000000, $alpha: 1);
+    }
+  }
+
+  .swiper-button-prev{
+    left: -10px;
+    &:hover{
+      left: 0;
+      transform: scale(1);
+    }
+  }
+  .swiper-button-next{
+    right: -10px;
+    &:hover{
+      right: 0;
+      transform: scale(1);
+    }
+  }
+}

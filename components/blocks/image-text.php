@@ -32,7 +32,7 @@
            // Specifying a color for the icon (optional: if not set, a readable color will be automatically defined)
            'foreground' => '#000000',
            // Specifying a dashicon for the block
-           'src' => 'align-full-width',
+           'src' => 'analytics',
            'mode'           => 'edit',
             'align'         => 'full',
            ),

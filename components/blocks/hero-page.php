@@ -45,11 +45,19 @@
 
 function gmp_gutenblock_heroBlock() {
   // Get Options
+  $show_breadcrumb = get_field('mostra_breadcrumb');
+  $ingredients = array(
+    'root' => array(
+      'slug' => 'home',
+      'url' => get_home_url(),
+    ),
+    'separator' => '<span class="separator">→</span>',
+  );
 
 
   // Get Content
-
-
+  $title = get_field('titolo');
+  $pageTitle = get_the_title();
 
   // Return HTML
   ?>
@@ -59,9 +67,23 @@ function gmp_gutenblock_heroBlock() {
     <div class="content-block">
 
       <div class="block-hero-page__wrapper">
-
+        <h1 class="title">
+          <?php if($title == "") : ?>
+            <?= $pageTitle ?>
+          <?php else :?>
+            <?= $title ?>
+          <?php endif; ?>
+        </h1>
 
       </div>
+      
+      <?php if($show_breadcrumb) : ?>
+      <div class="hero-page__breadcrumb">
+        <div class="content-block">
+          <?php the_bread( $ingredients ); ?>
+        </div>
+      </div>
+      <?php endif; ?>
 
     </div>
   </section>

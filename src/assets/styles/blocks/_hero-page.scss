@@ -1,0 +1,28 @@
+.block-hero-page{
+  background-image: url('../images/pattern.png');
+  max-height: 670px;
+  overflow: hidden;
+  width: 100%;
+  min-height: 350px;
+  background-repeat: repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1.title{
+    font-size: 50px;
+    text-transform: uppercase;
+  }
+}
+
+// FOR SPECIFIC BREADCRUMB STYLE SEE COMPONENTS
+.hero-page__breadcrumb{
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid $color__light-grey;
+}

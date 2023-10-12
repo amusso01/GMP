@@ -9,7 +9,7 @@
 
 
  /*==================================================================================
-   banner-parallax, Preset ACF Gutenberg Block
+   hero-block, Preset ACF Gutenberg Block
  ==================================================================================*/
 
  /* Register ACF Block
@@ -18,10 +18,10 @@
  if( function_exists('acf_register_block') ) {
 
   $result = acf_register_block(array(
-    'name'				     => 'gmp_banner_image_parallax',
-    'title'				     => __('Hero homepage block'),
-    'description'		   => __('Hero banner for the homepage'),
-    'render_callback'	 => 'gmp_gutenblock_heroBlockHome',
+    'name'				     => 'gmp_banner-parallax',
+    'title'				     => __('Banner Image parallax'),
+    'description'		   => __('A full width image with parrallax'),
+    'render_callback'	 => 'gmp_gutenblock_bannerParallax',
     'supports' => [
     'align'           => ['wide', 'center', 'full'],
    ],
@@ -32,39 +32,34 @@
            // Specifying a color for the icon (optional: if not set, a readable color will be automatically defined)
            'foreground' => '#000000',
            // Specifying a dashicon for the block
-           'src' => 'align-full-width',
+           'src' => 'cover-image',
            'mode'           => 'edit',
             'align'         => 'full',
            ),
-    'keywords'		     => ['gmp', 'banner-parallax', 'image', 'banner', 'carousel']
+    'keywords'		     => ['gmp', 'image', 'banner', 'parallax']
   ));
 }
 
 /* Render Block
 /––––––––––––––––––––––––*/
 
-function gmp_gutenblock_heroBlockHome() {
+function gmp_gutenblock_bannerParallax() {
   // Get Options
-
+  $height= get_field('altezza');
 
   // Get Content
-
-
-
+  $bgimage = get_field('immagine_di_background')
   // Return HTML
   ?>
   
 
-  <section  class="block-hero-home">
-    <div class="content-block">
+  <section  class="block-banner-parallax">
 
-      <div class="block-hero-home__wrapper">
-
+      <div class="block-banner-parallax__wrapper parallax" style="background-image: url(<?= $bgimage ?>); height:<?= $height ?>px">
 
       </div>
 
-    </div>
-  </section>
+  </section> 
 
 
 <?php

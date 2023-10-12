@@ -153,4 +153,3 @@ function WPSeed_gtm($type) {
 // style="max-width: 100%; max-height: 100%;"
 // class="lazyload" alt="author image" />
 // </figure>
-

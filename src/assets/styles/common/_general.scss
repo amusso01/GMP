@@ -114,3 +114,14 @@ h6,
 .h6 {
 	font-size: $text__h6;
 }
+
+// footer at bottom
+#page{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+
+	.site-footer{
+		margin-top: auto;
+	}
+}
