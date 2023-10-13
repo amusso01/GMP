@@ -1,0 +1,88 @@
+.block-image-text{
+  padding-bottom: 60px;
+}
+
+.block-image-text__wrapper{
+  display: flex;
+  column-gap: 40px;
+
+  .paragraph{
+    color: $color__grey;
+    line-height: 26px;
+
+    strong{
+      color: black;
+    }
+  }
+}
+
+.block-image-text__body{
+  flex-basis: 50%;
+}
+
+.block-image-text__pictures{
+  flex-direction: row;
+  flex-basis: 50%;
+  width: 50%;
+
+  .block-image-text__figure{
+    padding-bottom: 30px;
+  }
+
+  h5{
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+
+  // This class apply when the gallery show is false
+  &.align-center{
+    display: flex;
+    align-items: center;
+    .block-image-text__figure{
+      padding-bottom: 0;
+    }
+  }
+
+  .swiper-gallery{
+    height: 135px;
+    .swiper-slide{
+      height: 100%;
+      img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .swiper-gallery-button{
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      position: absolute;
+      top: 50%;
+      z-index: 9;
+      transform: translateY(-50%);
+      i{
+        color: #ffffff;
+        font-size: 21px;
+      }
+
+      &:hover{
+        background-color: rgba($color: #000000, $alpha: 0.8);
+      }
+    }
+
+    .swiper-gallery-button-prev{
+      left: 0px;
+    }
+    .swiper-gallery-button-next{
+      right: 0px;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import Aos from "aos";
 import MicroModal from 'micromodal';
 
 import gmpHeroSliderBlock from "../part/hero-slider-block";
+import gmpGallerySlider from "../part/gallery-slider";
 
 // https://github.com/aFarkas/lazysizes
 import 'lazysizes';
@@ -27,6 +28,11 @@ export default {
 		const blockHeroHome = document.querySelector('.swiper-hero-home')
 		if (typeof(blockHeroHome) != 'undefined' && blockHeroHome != null){
 			gmpHeroSliderBlock();		
+		}
+		// Gallery Slider
+		const gallerySlider = document.querySelector('.swiper-gallery')
+		if (typeof(gallerySlider) != 'undefined' && gallerySlider != null){
+			gmpGallerySlider();		
 		}
 	
 	},

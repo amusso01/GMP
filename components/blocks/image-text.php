@@ -45,10 +45,13 @@
 
 function gmp_gutenblock_imageText() {
   // Get Options
-
+  $showSlider = get_field('mostra_galleria');
 
   // Get Content
-
+  $title = get_field('titolo');
+  $body = get_field('paragrafo');
+  $image = get_field('immagine_statica');
+  $slider = get_field('galleria_immagini');
 
 
   // Return HTML
@@ -60,6 +63,54 @@ function gmp_gutenblock_imageText() {
 
       <div class="block-image-text__wrapper">
 
+        <div class="block-image-text__body">
+          <h2 class="underline"><?= $title ?></h2>
+          <div class="paragraph">
+            <?= $body ?>
+          </div>
+        </div>
+
+        <div class="block-image-text__pictures <?= $showSlider ? '' : 'align-center' ?>">
+          <?php if($image): ?>
+            <?php $alt_text = get_post_meta($image , '_wp_attachment_image_alt', true);?>
+            <figure class="block-image-text__figure">
+            <img data-sizes="auto"
+              data-srcset="<?php bml_the_image_srcset($image) ?>"
+              data-parent-fit="cover"
+              alt=""
+              style="max-width: 100%; max-height: 100%;"
+              class="lazyload" alt="<?= $alt_text ?>"/>
+            </figure>
+          <?php endif; ?>
+
+          <?php if($showSlider) : ?>
+            <h5>GALLERY</h5>
+            <!-- Slider main container -->
+            <div class="swiper swiper-gallery">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <?php foreach ($slider as $pic) : ?>
+                <?php $alt_text = get_post_meta($pic, '_wp_attachment_image_alt', true);?>
+                <div class="swiper-slide">
+                    <img data-sizes="auto"
+                    data-srcset="<?php bml_the_image_srcset($pic) ?>"
+                    data-parent-fit="cover"
+                    style="max-width: 100%; max-height: 100%;"
+                    class="lazyload" alt="<?= $alt_text ?>" />
+                </div>
+                <?php endforeach; ?>
+              </div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-gallery-button-prev swiper-gallery-button"><i class="fa-solid fa-angle-left"></i></div>
+              <div class="swiper-gallery-button-next swiper-gallery-button"><i class="fa-solid fa-angle-right"></i></div>
+            </div>
+          <?php endif; ?>
+     
+        </div>
+
+        
 
       </div>
 

@@ -54,7 +54,8 @@ img[data-sizes="auto"] { display: block; width: 100%; }
 
 .underline{
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
+	font-weight: 500;
 
 	&::before{
 		@include pseudo;

@@ -65,13 +65,14 @@ function gmp_gutenblock_heroBlockHome() {
         <div class="swiper-wrapper">
           <!-- Slides -->
           <?php foreach ($images as $image) : ?>
+            <?php $alt_text = get_post_meta($image['immagine'] , '_wp_attachment_image_alt', true);?>
           <div class="swiper-slide">
             <figure>
               <img data-sizes="auto"
               data-srcset="<?php bml_the_image_srcset($image['immagine']) ?>"
               data-parent-fit="cover"
               style="max-width: 100%; max-height: 100%;"
-              class="lazyload" alt="author image" />
+              class="lazyload" alt="<?= $alt_text ?>" />
             </figure>
           </div>
           <?php endforeach; ?>
