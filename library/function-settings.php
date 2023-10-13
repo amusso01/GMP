@@ -79,8 +79,6 @@ if ( ! function_exists( 'foundry_setup' ) ) :
 		wp_enqueue_style( 'foundry-styles' );
 		
 		// SCRIPT
-		wp_dequeue_script( 'jquery' );
-		wp_deregister_script( 'jquery' );
 		wp_register_script( 'foundry-js', get_template_directory_uri() . '/dist/scripts/' . foundry_asset_path( 'main.js' ), array(), '1.0', true );
 		wp_enqueue_script( 'foundry-js' );
 
@@ -265,9 +263,9 @@ function we_login_logo() {
 		}
 	
         #login h1 a, .login h1 a {
-            background-image: url( <?php echo $customLogo ?>);
+					background-image: url( <?php echo $customLogo ?>);
 			background-repeat: no-repeat;
-			background-size: 70px;
+			background-size: 57px;
 			<?php if($fontFamily): ?>
 			font-family: <?php echo $fontFamily ?>!important;
 			<?php endif; ?>
