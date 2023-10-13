@@ -26,11 +26,15 @@ $email = get_field( 'email', 'option' );
       <div class="info-box color-dark-bg">
         <div class="single-info">
           <i class="fa-solid fa-location-dot"></i>
-          <?= $address ?>
+          <div>
+            <?= $address ?>
+          </div>
         </div>
         <div class="single-info">
           <i class="fa-solid fa-location-dot"></i>
-          <?=$addressAlternative ?>
+          <div>
+            <?=$addressAlternative ?>
+          </div>
         </div>
         <div class="single-info">
           <i class="fa-solid fa-phone"></i>
