@@ -86,18 +86,20 @@ function gmp_gutenblock_imageText() {
           <?php if($showSlider) : ?>
             <h5>GALLERY</h5>
             <!-- Slider main container -->
-            <div class="swiper swiper-gallery">
+            <div class="swiper swiper-gallery <?= count($slider) < 4 ? 'disabled' : '' ?>">
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
                 <!-- Slides -->
                 <?php foreach ($slider as $pic) : ?>
                 <?php $alt_text = get_post_meta($pic, '_wp_attachment_image_alt', true);?>
-                <div class="swiper-slide">
-                    <img data-sizes="auto"
-                    data-srcset="<?php bml_the_image_srcset($pic) ?>"
-                    data-parent-fit="cover"
-                    style="max-width: 100%; max-height: 100%;"
-                    class="lazyload" alt="<?= $alt_text ?>" />
+                <div class="swiper-slide ">
+                    <a href="<?= wp_get_attachment_image_url( $pic, 'full' ) ?>" class="chocolat-image">    
+                      <img data-sizes="auto"
+                      data-srcset="<?php bml_the_image_srcset($pic) ?>"
+                      data-parent-fit="cover"
+                      style="max-width: 100%; max-height: 100%;"
+                      class="lazyload" alt="<?= $alt_text ?>" />
+                    </a>
                 </div>
                 <?php endforeach; ?>
               </div>

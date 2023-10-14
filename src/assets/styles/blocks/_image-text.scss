@@ -1,5 +1,6 @@
 .block-image-text{
-  padding-bottom: 60px;
+  padding-bottom: 90px;
+  padding-top: 60px;
 }
 
 .block-image-text__wrapper{
@@ -83,6 +84,12 @@
     }
     .swiper-gallery-button-next{
       right: 0px;
+    }
+
+    &.disabled{
+      .swiper-gallery-button{
+        display: none;
+      }
     }
   }
 }

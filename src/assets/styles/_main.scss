@@ -4,6 +4,8 @@
 @import "~aos/dist/aos";
 @import "vendors/lazysizes";
 @import "~swiper/swiper-bundle";
+@import '~chocolat/dist/css/chocolat.css';
+.chocolat-overlay{background-color: black;}
 
 @import "~@fortawesome/fontawesome-free/css/solid";
 @import "~@fortawesome/fontawesome-free/css/fontawesome";

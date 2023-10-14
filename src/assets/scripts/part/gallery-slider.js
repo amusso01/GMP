@@ -1,6 +1,8 @@
 import Swiper from 'swiper';
 import { Navigation} from 'swiper/modules';
 
+import Chocolat from 'chocolat'
+
 export default function gmpGallerySlider(){
 
   // init Swiper:
@@ -15,4 +17,13 @@ export default function gmpGallerySlider(){
     }
   });
 
+  
+
+  const set = document.querySelectorAll('.block-image-text')
+  for (let i = 0; i < set.length; i++) {
+      const gallery = set[i].querySelectorAll('.chocolat-image')
+      Chocolat(gallery, {
+          allowZoom: false,
+      })
+  }
 }
