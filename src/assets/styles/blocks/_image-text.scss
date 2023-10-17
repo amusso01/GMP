@@ -1,5 +1,5 @@
 .block-image-text{
-  padding-bottom: 90px;
+  padding-bottom: 80px;
   padding-top: 60px;
 }
 
@@ -90,6 +90,23 @@
       .swiper-gallery-button{
         display: none;
       }
+    }
+  }
+}
+
+
+.block-text-image__download{
+  h5{
+    margin-bottom: 10px;
+  }
+  p+p{
+    margin-top: 7px;
+  }
+
+  p{
+    i{
+      font-size: 18px;
+      margin-right: 4px;
     }
   }
 }

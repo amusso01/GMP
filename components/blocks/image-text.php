@@ -46,12 +46,14 @@
 function gmp_gutenblock_imageText() {
   // Get Options
   $showSlider = get_field('mostra_galleria');
+  $showDownload = get_field('mostra_download');
 
   // Get Content
   $title = get_field('titolo');
   $body = get_field('paragrafo');
   $image = get_field('immagine_statica');
   $slider = get_field('galleria_immagini');
+  $files = get_field('files');
 
 
   // Return HTML
@@ -73,10 +75,15 @@ function gmp_gutenblock_imageText() {
         <div class="block-image-text__pictures <?= $showSlider ? '' : 'align-center' ?>">
           <?php if($image): ?>
             <?php $alt_text = get_post_meta($image , '_wp_attachment_image_alt', true);?>
-            <figure class="block-image-text__figure">
+            <figure class="block-image-text__figure" 
+       
+          >
             <img data-sizes="auto"
               data-srcset="<?php bml_the_image_srcset($image) ?>"
               data-parent-fit="cover"
+              data-aos="fade-left" 
+              data-aos-easing="ease-in-sine"
+              data-aos-duration="500"
               alt=""
               style="max-width: 100%; max-height: 100%;"
               class="lazyload" alt="<?= $alt_text ?>"/>
@@ -86,10 +93,11 @@ function gmp_gutenblock_imageText() {
           <?php if($showSlider) : ?>
             <h5>GALLERY</h5>
             <!-- Slider main container -->
-            <div class="swiper swiper-gallery <?= count($slider) < 4 ? 'disabled' : '' ?>">
+            <div class="swiper swiper-gallery <?= count($slider) < 5 ? 'disabled' : '' ?>">
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
                 <!-- Slides -->
+                <?php if(count($slider) > 0) : ?>
                 <?php foreach ($slider as $pic) : ?>
                 <?php $alt_text = get_post_meta($pic, '_wp_attachment_image_alt', true);?>
                 <div class="swiper-slide ">
@@ -102,6 +110,7 @@ function gmp_gutenblock_imageText() {
                     </a>
                 </div>
                 <?php endforeach; ?>
+                <?php endif ?>
               </div>
 
               <!-- If we need navigation buttons -->
@@ -109,8 +118,23 @@ function gmp_gutenblock_imageText() {
               <div class="swiper-gallery-button-next swiper-gallery-button"><i class="fa-solid fa-angle-right"></i></div>
             </div>
           <?php endif; ?>
+
+          <?php if($showDownload) : ?>
+          <div class="line-grey"></div>
      
+          <div class="block-text-image__download">
+              <h5>DOWNLOAD</h5>
+              <?php foreach($files as $file)  :?>
+                <p><i class="fa-regular fa-file"></i> <a target="_blank" href="<?= $file['file']['url'] ?>"><?= $file['file']['title'] ?></a></p>
+              <?php endforeach; ?>
+          </div>
+
+          <div class="line-grey"></div>
+          <?php endif; ?>
+
         </div>
+
+
 
         
 
