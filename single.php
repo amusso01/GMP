@@ -7,31 +7,40 @@
  * @package foundry
  */
 
-get_header();
-?>
+ get_header();
 
-	<div id="primary" class="container content-area">
-			<main id="main" class="site-main sidebar">
 
-			<?php
-			while ( have_posts() ) :
-				the_post();
+ $args = array(
+	'post_type' => 'post',
+	'posts_per_page' => 9,
+	'order' => 'ASC'
+ );
+ ?>
+ 
+ <main role="main" class="site-main single-main">
 
-				the_content( );
+ 	<?php get_template_part( 'components/page/hero-page' ); ?>
 
-				the_post_navigation();
+	<artilce class="single-post__wrapper">
+		
+		<div class="content-block">
+			<figure class="post-featured-image">
+				<img src="<?= get_the_post_thumbnail_url() ?>" alt="article image" />
+			</figure>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+			<h2 class="h4 post-title"><?= get_the_title() ?></h2>
+		</div>
 
-			endwhile; // End of the loop.
-			?>
+		<div class="single-post__body">
+			<?php the_content() ?>
+		</div>
 
-			</main><!-- #main -->
+	</artilce>
 
-	</div><!-- #primary -->
-
-<?php
-get_footer();
+	
+ 
+ </main><!-- #main -->
+ 
+ 
+ <?php
+ get_footer();

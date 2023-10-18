@@ -12,37 +12,46 @@
  * @package foundry
  */
 
-get_header();
-?>
+ get_header();
 
+ $args = array(
+	'post_type' => 'post',
+	'posts_per_page' => 9,
+	'order' => 'ASC'
+ );
+ ?>
+ 
+ <main role="main" class="site-main index-main">
 
-<main role="main" class=" main index-main">
+ 	<?php get_template_part( 'components/page/hero-page' ); ?>
 
-<?php
-if ( have_posts() ) :?>
+ 	
+	<div class="post__wrapper">
+ 		<div class="content-block">
+			<div class="post__wrapper-grid">
+			<?php 
+				$the_query = new WP_Query( $args );
 
-	<header>
-		<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-	</header>
+				// The Loop
+				if ( $the_query->have_posts() ) :
+				while ( $the_query->have_posts() ) : $the_query->the_post();
 
-<?php
-	/* Start the Loop */
-	while ( have_posts() ) :
-
-		the_post();
-		get_template_part( 'template-parts/content', get_post_type() );
-
-	endwhile;
-
-else :
-
-	get_template_part( 'template-parts/content', 'none' );
-
-endif;
-?>
-
-</main><!-- #main -->
-
-
-<?php
-get_footer();
+					get_template_part( 'components/cards/news-card' ); 	
+					
+				endwhile;
+				endif;
+				
+				// Reset Post Data
+				wp_reset_postdata();
+			?>
+			</div>
+		</div>
+	</div>
+	
+ 
+ </main><!-- #main -->
+ 
+ 
+ <?php
+ get_footer();
+ 
