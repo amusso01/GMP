@@ -6,6 +6,11 @@
   cursor: pointer;
 }
 
+.micromodal-slide{
+  z-index: 10;
+  position: fixed;
+}
+
 .modal__overlay {
   position: fixed;
   top: 0;

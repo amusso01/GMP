@@ -73,9 +73,12 @@ ADD JS
 function my_block_plugin_editor_scripts()
 {
     // Enqueue block editor styles
+		wp_enqueue_style( 'root_editor_gmp',  get_template_directory_uri() . '/dist/styles/root.css', false, '1.0', 'all' );
+		wp_enqueue_style( 'main_editor_gmp',  get_template_directory_uri() . '/dist/styles/main.css', false, '1.0', 'all' );
 
     // Enqueue block editor JS
     wp_enqueue_script('lazysizes', get_template_directory_uri() . '/js/lazysizes.js', array(), true);
+    wp_enqueue_script('main_editor', get_template_directory_uri() . '/dist/scripts/main.js', array(), true);
 }
 
 // Hook the enqueue functions into the editor
@@ -84,9 +87,9 @@ add_action('enqueue_block_editor_assets', 'my_block_plugin_editor_scripts');
 /*==================================================================================
 Register back-end CSS editor
 ==================================================================================*/
-add_theme_support('editor-styles');
-add_editor_style( './dist/styles/root.css' );
-add_editor_style( './dist/styles/main.css' );
+// add_theme_support('editor-styles');
+// add_editor_style( './dist/styles/root.css' );
+// add_editor_style( './dist/styles/main.css' );
 
 
 /*==================================================================================
@@ -161,3 +164,4 @@ require get_template_directory().'/components/blocks/hero-page.php';
 require get_template_directory().'/components/blocks/image-text.php';
 require get_template_directory().'/components/blocks/hero-homepage.php';
 require get_template_directory().'/components/blocks/banner-parallax.php';
+require get_template_directory().'/components/blocks/three-columns-card.php';

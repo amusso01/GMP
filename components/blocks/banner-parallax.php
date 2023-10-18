@@ -24,6 +24,7 @@
     'render_callback'	 => 'gmp_gutenblock_bannerParallax',
     'supports' => [
     'align'           => ['wide', 'center', 'full'],
+    'anchor' => true,
    ],
     'category'		     => 'gmp-category', // common, formatting, layout, widgets, embed
     'icon' => array(
@@ -53,7 +54,7 @@ function gmp_gutenblock_bannerParallax() {
   ?>
   
 
-  <section  class="block-banner-parallax">
+  <section  class="block-banner-parallax" >
 
       <div class="block-banner-parallax__wrapper parallax" style="background-image: url(<?= $bgimage ?>); height:<?= $height ?>px">
 

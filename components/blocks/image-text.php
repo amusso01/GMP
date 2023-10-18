@@ -24,6 +24,8 @@
     'render_callback'	 => 'gmp_gutenblock_imageText',
     'supports' => [
     'align'           => ['wide', 'center', 'full'],
+    'anchor' => true,
+    'id' => true
    ],
     'category'		     => 'gmp-category', // common, formatting, layout, widgets, embed
     'icon' => array(
@@ -43,7 +45,7 @@
 /* Render Block
 /––––––––––––––––––––––––*/
 
-function gmp_gutenblock_imageText() {
+function gmp_gutenblock_imageText($result) {
   // Get Options
   $showSlider = get_field('mostra_galleria');
   $showDownload = get_field('mostra_download');
@@ -55,12 +57,11 @@ function gmp_gutenblock_imageText() {
   $slider = get_field('galleria_immagini');
   $files = get_field('files');
 
-
   // Return HTML
   ?>
   
 
-  <section  class="block-image-text">
+  <section  class="block-image-text"  <?= array_key_exists('anchor' ,$result) ? 'id="'.esc_attr( $result["anchor"]).'"' : '' ?> >
     <div class="content-block">
 
       <div class="block-image-text__wrapper">
@@ -146,3 +147,4 @@ function gmp_gutenblock_imageText() {
 
 <?php
 }
+
