@@ -49,6 +49,7 @@ function gmp_gutenblock_imageText($result) {
   // Get Options
   $showSlider = get_field('mostra_galleria');
   $showDownload = get_field('mostra_download');
+  $showText = get_field('mostra_paragrafo');
 
   // Get Content
   $title = get_field('titolo');
@@ -65,20 +66,19 @@ function gmp_gutenblock_imageText($result) {
     <div class="content-block">
 
       <div class="block-image-text__wrapper">
-
+        <?php if($showText) : ?>
         <div class="block-image-text__body">
           <h2 class="underline"><?= $title ?></h2>
           <div class="paragraph">
             <?= $body ?>
           </div>
         </div>
+        <?php endif; ?>
 
         <div class="block-image-text__pictures <?= $showSlider ? '' : 'align-center' ?>">
           <?php if($image): ?>
             <?php $alt_text = get_post_meta($image , '_wp_attachment_image_alt', true);?>
-            <figure class="block-image-text__figure" 
-       
-          >
+            <figure class="block-image-text__figure" >
             <img data-sizes="auto"
               data-srcset="<?php bml_the_image_srcset($image) ?>"
               data-parent-fit="cover"
@@ -93,6 +93,11 @@ function gmp_gutenblock_imageText($result) {
 
           <?php if($showSlider) : ?>
             <h5>GALLERY</h5>
+
+            <?php if(!$image): ?>
+            <div class="line-grey mt-0"></div>
+            <?php endif; ?>
+
             <!-- Slider main container -->
             <div class="swiper swiper-gallery <?= count($slider) < 5 ? 'disabled' : '' ?>">
               <!-- Additional required wrapper -->
@@ -118,10 +123,11 @@ function gmp_gutenblock_imageText($result) {
               <div class="swiper-gallery-button-prev swiper-gallery-button"><i class="fa-solid fa-angle-left"></i></div>
               <div class="swiper-gallery-button-next swiper-gallery-button"><i class="fa-solid fa-angle-right"></i></div>
             </div>
+
+            <div class="line-grey"></div>
           <?php endif; ?>
 
           <?php if($showDownload) : ?>
-          <div class="line-grey"></div>
      
           <div class="block-text-image__download">
               <h5>DOWNLOAD</h5>
