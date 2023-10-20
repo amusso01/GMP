@@ -1,5 +1,5 @@
 import smoothscroll from "smoothscroll-polyfill";
-// import hamburger from "./../part/hamburger";
+import hamburger from "./../part/hamburger";
 import Aos from "aos";
 import MicroModal from 'micromodal';
 
@@ -24,7 +24,7 @@ export default {
 		MicroModal.init();
 
 		// Hamburger event listener
-		// hamburger()
+		hamburger()
 
 		// Hero Slider
 		const blockHeroHome = document.querySelector('.swiper-hero-home')

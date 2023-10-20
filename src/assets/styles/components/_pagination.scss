@@ -34,7 +34,7 @@
       &:hover{
         color: inherit;
         &:after{
-          opacity: .5;
+          opacity: .3;
         }
       }
     }
@@ -52,6 +52,7 @@
       padding: 18px 0px;
     }
     p{
+      opacity: .5;
       &:hover{
         cursor: not-allowed;
       }
