@@ -47,7 +47,7 @@
 			?>
 			</div>
 			<div class="pagination__wrapper">
-				<?php post_pagination(); ?>
+				<?php  wds_pagination();  ?>
 			</div>
 		</div>
 	</div>
@@ -58,4 +58,3 @@
  
  <?php
  get_footer();
- 

@@ -162,16 +162,69 @@ function WPSeed_gtm($type) {
 ==================================================================================*/
 
 
-if ( ! function_exists( 'post_pagination' ) ) :
-  function post_pagination() {
-    global $wp_query;
-    $pager = 999999999; // need an unlikely integer
+// if ( ! function_exists( 'post_pagination' ) ) :
+//   function post_pagination() {
+//     global $wp_query;
+//     $pager = 999999999; // need an unlikely integer
 
-       echo paginate_links( array(
-            'base' => str_replace( $pager, '%#%', esc_url( get_pagenum_link( $pager ) ) ),
-            'format' => '?paged=%#%',
-            'current' => max( 1, get_query_var('paged') ),
-            'total' => $wp_query->max_num_pages
-       ) );
+//        echo paginate_links( array(
+//             'base' => str_replace( $pager, '%#%', esc_url( get_pagenum_link( $pager ) ) ),
+//             'format' => '?paged=%#%',
+//             'current' => max( 1, get_query_var('paged') ),
+//             'total' => $wp_query->max_num_pages
+//        ) );
+//   }
+// endif;
+
+/**
+* Pagination
+*
+* @param int $pages number of pages.
+* @param int $range number of links to show of lest and right from current post.
+*
+* @return html Returns the pagination html block.
+*/
+function wds_pagination($pages = '', $range = 4) {
+  global $paged;
+  $showitems = ($range * 2)+1; // links to show
+  // init paged
+  if(empty($paged))
+  $paged = 1;
+  // init pages
+  if($pages == '') {
+  global $wp_query;
+  $pages = $wp_query->max_num_pages;
+  if(!$pages)
+  $pages = 1;
   }
-endif;
+  // if $pages more then one post
+  if(1 != $pages) {
+  // Prev link
+  echo "<div class='pagination-box prev-box'>";
+  if($paged == 1) {
+    echo '<p class="hide">Previous</p>';
+  }else{
+    echo '<a href="'.get_pagenum_link($paged - 1).'">Previous</a>';
+  }
+  echo '</div>';
+
+  // Links of pages
+  echo '<div class="pagination-box number-box">';
+  for ($i=1; $i <= $pages; $i++)
+  if (1 != $pages && ( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
+  echo ($paged == $i) ? '<span class="current">' . $i . '</span>' : '<a href="' . get_pagenum_link($i) . '">' . $i . 
+  '</a>';
+  echo '</div>';
+
+  // Next link
+  echo '<div class="pagination-box next-box">';
+  if( $pages == $paged) {
+    echo '<p class="hide">Next</p>';
+  }else{
+    echo '<a href="' . get_pagenum_link($paged + 1) . '">Next</a>';
+  }
+  echo '</div>';
+
+  echo '</div>';
+  }
+  }
