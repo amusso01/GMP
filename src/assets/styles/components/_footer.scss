@@ -6,6 +6,16 @@ footer.site-footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@include media("<phone-land"){
+		flex-direction: column;
+		justify-items: center;
+		row-gap: 25px;
+
+		.site-footer__item-info{
+			text-align: center;
+		}
+	}
 }
 
 .site-footer__item{
