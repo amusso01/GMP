@@ -16,10 +16,7 @@
       style="max-width: 100%; max-height: 100%;"
       class="lazyload" alt="article image" />
       <h3 class="single-card__title">
-        <a href="<?= get_the_permalink() ?>" 
-          data-aos="fade-up"
-          data-aos-duration="600"
-        >
+        <a href="<?= get_the_permalink() ?>">
           <?= get_the_title() ?>
         </a>
       </h3>

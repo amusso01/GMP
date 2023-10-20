@@ -5,6 +5,8 @@ import MicroModal from 'micromodal';
 
 import gmpHeroSliderBlock from "../part/hero-slider-block";
 import gmpGallerySlider from "../part/gallery-slider";
+import gmptabSlider from "../part/tab-slider";
+
 
 // https://github.com/aFarkas/lazysizes
 import 'lazysizes';
@@ -33,6 +35,11 @@ export default {
 		const gallerySlider = document.querySelector('.swiper-gallery')
 		if (typeof(gallerySlider) != 'undefined' && gallerySlider != null){
 			gmpGallerySlider();		
+		}
+		// tab Slider
+		const tabSlider = document.querySelector('.swiper-tab')
+		if (typeof(tabSlider) != 'undefined' && tabSlider != null){
+			gmptabSlider();		
 		}
 	
 	},

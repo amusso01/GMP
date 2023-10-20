@@ -7,8 +7,26 @@
  *
  */
 
+ $crumbs = get_the_crumbs();
+
+  // REBUILD BREADCRUMB IF IS PAGINATION
+  if(is_paged(  )){
+    array_splice($crumbs, 0);
+    array_push( $crumbs,
+          array(
+              'slug' => 'news',
+              'url' => site_url( '/news' ),
+          )
+    );
+  }
+  //  TODO ADD NEWS IF IS SINGULAR
+  if(is_singular( 'post' )){
+   
+
+  }
 
 $ingredients = array(
+  'crumbs' => $crumbs,
   'root' => array(
     'slug' => 'home',
     'url' => get_home_url(),

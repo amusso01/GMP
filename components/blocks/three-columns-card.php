@@ -69,10 +69,7 @@ function gmp_gutenblock_cardsColumn() {
                 style="max-width: 100%; max-height: 100%;"
                 class="lazyload" alt="<?= $alt_text ?>" />
                 <h3 class="single-card__title">
-                  <a href="<?= $card['link']['url'] ?>" 
-                    data-aos="fade-up"
-                    data-aos-duration="600"
-                  >
+                  <a href="<?= $card['link']['url'] ?>" >
                     <?= $card['titolo'] ?>
                   </a>
                 </h3>

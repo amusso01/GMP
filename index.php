@@ -16,8 +16,9 @@
 
  $args = array(
 	'post_type' => 'post',
-	'posts_per_page' => 9,
-	'order' => 'ASC'
+	'posts_per_page' => 6,
+	'order' => 'ASC',
+	'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
  );
  ?>
  
@@ -44,6 +45,9 @@
 				// Reset Post Data
 				wp_reset_postdata();
 			?>
+			</div>
+			<div class="pagination__wrapper">
+				<?php post_pagination(); ?>
 			</div>
 		</div>
 	</div>

@@ -67,7 +67,10 @@ function gmp_gutenblock_imageText($result) {
 
       <div class="block-image-text__wrapper">
         <?php if($showText) : ?>
-        <div class="block-image-text__body">
+        <div class="block-image-text__body"
+          data-aos="fade-right" 
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500">
           <h2 class="underline"><?= $title ?></h2>
           <div class="paragraph">
             <?= $body ?>
@@ -82,9 +85,6 @@ function gmp_gutenblock_imageText($result) {
             <img data-sizes="auto"
               data-srcset="<?php bml_the_image_srcset($image) ?>"
               data-parent-fit="cover"
-              data-aos="fade-left" 
-              data-aos-easing="ease-in-sine"
-              data-aos-duration="500"
               alt=""
               style="max-width: 100%; max-height: 100%;"
               class="lazyload" alt="<?= $alt_text ?>"/>
@@ -107,13 +107,13 @@ function gmp_gutenblock_imageText($result) {
                 <?php foreach ($slider as $pic) : ?>
                 <?php $alt_text = get_post_meta($pic, '_wp_attachment_image_alt', true);?>
                 <div class="swiper-slide ">
-                    <a href="<?= wp_get_attachment_image_url( $pic, 'full' ) ?>" class="chocolat-image">    
-                      <img data-sizes="auto"
-                      data-srcset="<?php bml_the_image_srcset($pic) ?>"
-                      data-parent-fit="cover"
-                      style="max-width: 100%; max-height: 100%;"
-                      class="lazyload" alt="<?= $alt_text ?>" />
-                    </a>
+                  <a href="<?= wp_get_attachment_image_url( $pic, 'full' ) ?>" class="chocolat-image">    
+                    <img data-sizes="auto"
+                    data-srcset="<?php bml_the_image_srcset($pic) ?>"
+                    data-parent-fit="cover"
+                    style="max-width: 100%; max-height: 100%;"
+                    class="lazyload" alt="<?= $alt_text ?>" />
+                  </a>
                 </div>
                 <?php endforeach; ?>
                 <?php endif ?>
@@ -153,4 +153,3 @@ function gmp_gutenblock_imageText($result) {
 
 <?php
 }
-
