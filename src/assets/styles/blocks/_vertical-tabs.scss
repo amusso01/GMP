@@ -4,14 +4,25 @@
   .tab-grid{
     display: flex;
     column-gap: 20px;
+    @include media('<phone-land'){
+      flex-direction: column;
+      column-gap: 0px;
+      row-gap: 13px;
+    }
   }
 
   .tab-panel{
     width: 70%;
+    @include media('<phone-land'){
+      width: 100%;
+    }
   }
 
   .tab-nav{
     width: calc(30% - 20px);
+    @include media('<phone-land'){
+      width: 100%;
+    }
   }
 
  .tab-nav__btn {
@@ -44,6 +55,9 @@
     top: 50%;
     border-color: transparent #FF0000;
     opacity: 0;
+    @include media('<phone-land'){
+      display: none;
+    }
   }
 
   &::after{
@@ -61,6 +75,9 @@
     right: -9px;
     top: 50%;
     opacity: 0;
+    @include media('<phone-land'){
+      display: none;
+    }
   }
 
   &:hover{
@@ -81,6 +98,9 @@
 
  .swiper-tab{
   height: 530px;
+  @include media('<phone-land'){
+    height: 450px;
+  }
   .swiper-slide{
     height: 100%;
     >a{

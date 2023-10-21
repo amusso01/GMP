@@ -7,6 +7,11 @@
   grid-template-columns: 1fr 2fr;
   column-gap: 30px;
 
+  @include media('<phone-land'){
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
   .map-wrapper{
     iframe{
       width: 100%;
@@ -21,6 +26,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
+    row-gap: 15px;
+    @include media('<phone-land'){
+      padding: 35px 18px;
+    }
   }
 
   .single-info{
@@ -29,8 +38,16 @@
     column-gap: 25px;
     font-size: 16px;
     font-weight: 700;
+
+    @include media('<phone-land'){
+      font-size: 15px;
+    }
     i{
       font-size: 28px;
+
+      @include media('<phone-land'){
+        font-size: 21px;
+      }
     }
     p{
       margin-bottom: 5px;

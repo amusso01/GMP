@@ -1,11 +1,21 @@
 .block-image-text{
   padding-bottom: 80px;
   padding-top: 60px;
+
+  @include media("<phone-land"){
+    padding-bottom: 50px;
+    padding-top: 40px;
+  }
 }
 
 .block-image-text__wrapper{
   display: flex;
   column-gap: 40px;
+
+  @include media("<phone-land"){
+    flex-direction: column;
+    row-gap: 25px;
+  }
 
   .paragraph{
     color: $color__grey;
@@ -25,6 +35,9 @@
   flex-direction: row;
   flex-basis: 50%;
   width: 50%;
+  @include media("<phone-land"){
+    width: 100%;
+  }
 
   .block-image-text__figure{
     padding-bottom: 30px;

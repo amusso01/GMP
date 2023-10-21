@@ -11,3 +11,14 @@
     margin-bottom: 10px;
   }
 }
+
+.single-main{
+  .block-hero-page__wrapper{
+    .title{
+      @include media('<phone'){
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+  }
+}

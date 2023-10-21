@@ -27,6 +27,13 @@
     top: 0px;
     padding: 4px;
   }
+
+  @include media('<phone'){
+    img{
+      width: 60%;
+    }
+  }
+
 }
 
 .site-header__menu {

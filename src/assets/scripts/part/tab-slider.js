@@ -1,11 +1,10 @@
 import Swiper from 'swiper';
 import { Navigation, EffectFade } from 'swiper/modules';
-
-
-
 import Chocolat from 'chocolat'
 
+
 export default function gmptabSlider(){
+
 
   // init Swiper:
   let swiperTabs = new Swiper('.swiper-tab', {

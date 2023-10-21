@@ -54,6 +54,8 @@ function gmp_gutenblock_verticalTabs($result) {
   // Return HTML
   ?>
   <script src="//unpkg.com/alpinejs" defer></script>
+
+
   <section  class="block-verticalTabs"  <?= array_key_exists('anchor' ,$result) ? 'id="'.esc_attr( $result["anchor"]).'"' : '' ?> >
     <div class="content-block">
 
@@ -62,22 +64,25 @@ function gmp_gutenblock_verticalTabs($result) {
         x-data="{ 
           activeTab: 0,
           active: 'active',
-          inactive: 'inactive'
+          inactive: 'inactive',
+          isMobile: false
         }" 
+
+        x-init="window.matchMedia('(max-width: 920px)').matches ? isMobile=true : isMobile=false"
 
         class="tab-grid"
       >
         <ul class="tab-nav"   role="tablist">
           <?php foreach($tabs as $key=>$tab) : ?>
-          <li>
-            <button id="tab-nav-<?= $key ?>" aria-controls="tab-<?= $key ?>" role="tab" @click.prevent="activeTab = <?= $key ?>" :class="activeTab === <?= $key ?> ? active : inactive" class="tab-nav__btn">
+          <li @click="isMobile ? document.getElementById('tabPanel').scrollIntoView({ behavior: 'smooth'}) : ''" >
+            <button id="tab-nav-<?= $key ?>" aria-controls="tab-<?= $key ?>" role="tab" @click.prevent="activeTab = <?= $key ?>"  :class="activeTab === <?= $key ?> ? active : inactive" class="tab-nav__btn">
               <?= $tab['titolo']; ?>
             </button>
           </li>
           <?php endforeach; ?>
         </ul>
     
-        <div class="tab-panel">
+        <div class="tab-panel" id=tabPanel>
           <?php foreach($tabs as $key=>$tab) : ?>
             <div 
               role="tabpanel"

@@ -81,4 +81,9 @@ $text__h5: var(--text-h5);
 $text__h6: var(--text-h6);
 $text__p: var(--text-p);
 
+$text__h1-mobile: calc(var(--text-h1) * 0.80) ;
+$text__h2-mobile: calc(var(--text-h2) * 0.80) ;
+$text__h3-mobile: calc(var(--text-h3) * 0.85) ;
+$text__h4-mobile: calc(var(--text-h4) * 0.85) ;
+
 $font__weight: 400; //This is the global font-weight for text, link etc.. Specify header weight separetelly

@@ -69,6 +69,7 @@ a {
  * Headings
  */
 
+
 .h1,
 .h2,
 .h3,
@@ -88,21 +89,34 @@ h6 {
 h1,
 .h1 {
 	font-size: $text__h1;
+
+	@include media('<phone-land'){
+		font-size: $text__h1-mobile;
+	}
 }
 
 h2,
 .h2 {
 	font-size: $text__h2;
+	@include media('<phone-land'){
+		font-size: $text__h2-mobile;
+	}
 }
 
 h3,
 .h3 {
 	font-size: $text__h3;
+	@include media('<phone-land'){
+		font-size: $text__h3-mobile;
+	}
 }
 
 h4,
 .h4 {
 	font-size: $text__h4;
+	@include media('<phone-land'){
+		font-size: $text__h4-mobile;
+	}
 }
 
 h5,

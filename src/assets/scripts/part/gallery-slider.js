@@ -8,9 +8,17 @@ export default function gmpGallerySlider(){
   // init Swiper:
   let swiperLaptop = new Swiper('.swiper-gallery', {
     modules: [Navigation],
-    slidesPerView: 4,
+    slidesPerView: 2,
     loop: true,
     spaceBetween: 4,
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      },
+      920: {
+        slidesPerView: 4,
+      },
+    },
     navigation: {
       nextEl: ".swiper-gallery-button-next",
       prevEl: ".swiper-gallery-button-prev",

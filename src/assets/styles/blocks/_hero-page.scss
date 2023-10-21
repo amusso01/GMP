@@ -10,10 +10,15 @@
   justify-content: center;
   align-items: center;
 
+
   h1.title{
     font-size: 50px;
     text-transform: uppercase;
     text-align: center;
+    @include media('<phone-land'){
+      font-size: 34px;
+      line-height: 42px;
+    }
   }
 }
 

@@ -6,6 +6,10 @@
   border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
 
+  @include media('<phone'){
+    justify-content: center;
+  }
+
   .number-box{
     a, span{
       padding: 18px 20px;
@@ -62,6 +66,10 @@
         background-color: #eeeeee;
         color: $color__link;
       }
+    }
+
+    @include media('<phone'){
+      display: none;
     }
   }
 
