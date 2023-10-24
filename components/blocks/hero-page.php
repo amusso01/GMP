@@ -46,7 +46,17 @@
 function gmp_gutenblock_heroBlock() {
   // Get Options
   $show_breadcrumb = get_field('mostra_breadcrumb');
+
+  $crumbs = get_the_crumbs();
+
+  //  REMOVE EN for english version
+  if (get_locale() == 'en_GB') {
+
+    array_splice($crumbs, 0, 1);
+  }
+
   $ingredients = array(
+    'crumbs' => $crumbs,
     'root' => array(
       'slug' => 'home',
       'url' => get_home_url(),

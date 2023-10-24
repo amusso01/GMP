@@ -14,7 +14,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
+$crumbs = get_the_crumbs();
+
+//  REMOVE EN for english version
+if (get_locale() == 'en_GB') {
+
+  array_splice($crumbs, 0, 1);
+}
+
 $ingredients = array(
+  'crumbs' => $crumbs,
   'root' => array(
     'slug' => 'home',
     'url' => get_home_url(),
