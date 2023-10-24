@@ -49,5 +49,22 @@ export default {
 
 	finalize() {
 		// JavaScript to be fired on all pages, after page specific JS is fired
+
+		// MENU DROPDOWN
+		const dropdown = document.querySelectorAll('.menu-item-has-children')
+		dropdown.forEach(element => {
+			element.addEventListener('mouseover' , ()=>{
+				let innerMenu = element.querySelector('.sub-menu')
+
+				innerMenu.classList.add('s-show')
+			})
+
+			element.addEventListener('mouseleave' , ()=>{
+				let innerMenu = element.querySelector('.sub-menu')
+
+				innerMenu.classList.remove('s-show')
+			})
+		});
+
 	},
 };
