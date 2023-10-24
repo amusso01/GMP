@@ -13,6 +13,6 @@ if ( has_nav_menu( 'languagemenu' ) ) :
         'menu_class'        => 'language-menu',
         'menu_id'           => 'lang-nav',
         'container'         => 'nav',
-        'depth'             => 1
+        // 'depth'             => 1
     ]);
 endif;

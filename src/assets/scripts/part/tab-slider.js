@@ -5,6 +5,11 @@ import Chocolat from 'chocolat'
 
 export default function gmptabSlider(){
 
+  let mql = window.matchMedia("(max-width: 920px)");
+  if (mql.matches) {
+    // Then trigger an alert
+    
+  }
 
   // init Swiper:
   let swiperTabs = new Swiper('.swiper-tab', {

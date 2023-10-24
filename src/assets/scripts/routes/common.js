@@ -6,6 +6,7 @@ import MicroModal from 'micromodal';
 import gmpHeroSliderBlock from "../part/hero-slider-block";
 import gmpGallerySlider from "../part/gallery-slider";
 import gmptabSlider from "../part/tab-slider";
+import languageDropdown from "../part/languageDropdown";
 
 
 // https://github.com/aFarkas/lazysizes
@@ -25,6 +26,8 @@ export default {
 
 		// Hamburger event listener
 		hamburger()
+		// Language dropdown
+		languageDropdown()
 
 		// Hero Slider
 		const blockHeroHome = document.querySelector('.swiper-hero-home')
