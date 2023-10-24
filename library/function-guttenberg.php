@@ -166,3 +166,4 @@ require get_template_directory().'/components/blocks/hero-homepage.php';
 require get_template_directory().'/components/blocks/banner-parallax.php';
 require get_template_directory().'/components/blocks/three-columns-card.php';
 require get_template_directory().'/components/blocks/vertical-tabs.php';
+require get_template_directory().'/components/blocks/vertical-tabs-links.php';

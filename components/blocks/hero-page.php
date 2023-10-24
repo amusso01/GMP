@@ -55,6 +55,17 @@ function gmp_gutenblock_heroBlock() {
     array_splice($crumbs, 0, 1);
   }
 
+  //And intercepting a specific crumb to modify it...
+  array_walk( $crumbs, function( &$value, $key ) {
+
+    if ( 'production' == $value['slug'] ) {
+
+        $value['url'] = site_url( '/production' );
+
+    };
+
+  } );
+
   $ingredients = array(
     'crumbs' => $crumbs,
     'root' => array(
