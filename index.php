@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The index file
  *
@@ -12,49 +13,49 @@
  * @package foundry
  */
 
- get_header();
+get_header();
 
- $args = array(
+$args = array(
 	'post_type' => 'post',
 	'posts_per_page' => 6,
-	'order' => 'ASC',
-	'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
- );
- ?>
- 
- <main role="main" class="site-main index-main">
+	'order' => 'DESC',
+	'paged' => (get_query_var('paged') ? get_query_var('paged') : 1),
+);
+?>
 
- 	<?php get_template_part( 'components/page/hero-page' ); ?>
+<main role="main" class="site-main index-main">
 
- 	
+	<?php get_template_part('components/page/hero-page'); ?>
+
+
 	<div class="post__wrapper">
- 		<div class="content-block">
+		<div class="content-block">
 			<div class="post__wrapper-grid">
-			<?php 
-				$the_query = new WP_Query( $args );
+				<?php
+				$the_query = new WP_Query($args);
 
 				// The Loop
-				if ( $the_query->have_posts() ) :
-				while ( $the_query->have_posts() ) : $the_query->the_post();
+				if ($the_query->have_posts()) :
+					while ($the_query->have_posts()) : $the_query->the_post();
 
-					get_template_part( 'components/cards/news-card' ); 	
-					
-				endwhile;
+						get_template_part('components/cards/news-card');
+
+					endwhile;
 				endif;
-				
+
 				// Reset Post Data
 				wp_reset_postdata();
-			?>
+				?>
 			</div>
 			<div class="pagination__wrapper">
-				<?php  wds_pagination();  ?>
+				<?php wds_pagination();  ?>
 			</div>
 		</div>
 	</div>
-	
- 
- </main><!-- #main -->
- 
- 
- <?php
- get_footer();
+
+
+</main><!-- #main -->
+
+
+<?php
+get_footer();
