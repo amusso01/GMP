@@ -18,6 +18,7 @@ get_header();
 $args = array(
 	'post_type' => 'post',
 	'posts_per_page' => 6,
+	'orderby' => 'menu_order',
 	'order' => 'DESC',
 	'paged' => (get_query_var('paged') ? get_query_var('paged') : 1),
 );
