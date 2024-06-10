@@ -1,0 +1,13 @@
+.certifications , .certificazioni{
+  .block-image-text__wrapper{
+    &:first-of-type{
+    .block-image-text__figure {
+        >img{
+          width: 390px;
+  
+        }
+      }
+
+    }
+  }
+}
