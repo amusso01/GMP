@@ -1,70 +1,96 @@
 import smoothscroll from "smoothscroll-polyfill";
 import hamburger from "./../part/hamburger";
 import Aos from "aos";
-import MicroModal from 'micromodal';
+import MicroModal from "micromodal";
 
 import gmpHeroSliderBlock from "../part/hero-slider-block";
 import gmpGallerySlider from "../part/gallery-slider";
 import gmptabSlider from "../part/tab-slider";
 import languageDropdown from "../part/languageDropdown";
 
-
 // https://github.com/aFarkas/lazysizes
-import 'lazysizes';
-import 'lazysizes/plugins/bgset/ls.bgset';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import "lazysizes";
+import "lazysizes/plugins/bgset/ls.bgset";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
 
 export default {
 	init() {
 		// JavaScript to be fired on all pages
 
 		// kick off the polyfill!
-		smoothscroll.polyfill()
+		smoothscroll.polyfill();
 
-		Aos.init()
+		Aos.init();
 		MicroModal.init();
 
 		// Hamburger event listener
-		hamburger()
+		hamburger();
 		// Language dropdown
-		languageDropdown()
+		languageDropdown();
 
 		// Hero Slider
-		const blockHeroHome = document.querySelector('.swiper-hero-home')
-		if (typeof(blockHeroHome) != 'undefined' && blockHeroHome != null){
-			gmpHeroSliderBlock();		
+		const blockHeroHome = document.querySelector(".swiper-hero-home");
+		if (typeof blockHeroHome != "undefined" && blockHeroHome != null) {
+			gmpHeroSliderBlock();
 		}
 		// Gallery Slider
-		const gallerySlider = document.querySelector('.swiper-gallery')
-		if (typeof(gallerySlider) != 'undefined' && gallerySlider != null){
-			gmpGallerySlider();		
+		const gallerySlider = document.querySelector(".swiper-gallery");
+		if (typeof gallerySlider != "undefined" && gallerySlider != null) {
+			gmpGallerySlider();
 		}
 		// tab Slider
-		const tabSlider = document.querySelector('.swiper-tab')
-		if (typeof(tabSlider) != 'undefined' && tabSlider != null){
-			gmptabSlider();		
+		const tabSlider = document.querySelector(".swiper-tab");
+		if (typeof tabSlider != "undefined" && tabSlider != null) {
+			gmptabSlider();
 		}
-	
 	},
 
 	finalize() {
 		// JavaScript to be fired on all pages, after page specific JS is fired
 
 		// MENU DROPDOWN
-		const dropdown = document.querySelectorAll('.menu-item-has-children')
-		dropdown.forEach(element => {
-			element.addEventListener('mouseover' , ()=>{
-				let innerMenu = element.querySelector('.sub-menu')
+		const dropdown = document.querySelectorAll(".menu-item-has-children");
 
-				innerMenu.classList.add('s-show')
-			})
+		const mqLarge = window.matchMedia("(min-width: 920px)");
+		mqLarge.addEventListener("change", mqHandler);
+		// media query handler function
+		function mqHandler(e) {
+			if (e.matches) {
+				dropdown.forEach((element) => {
+					element.addEventListener("mouseover", () => {
+						let innerMenu = element.querySelector(".sub-menu");
 
-			element.addEventListener('mouseleave' , ()=>{
-				let innerMenu = element.querySelector('.sub-menu')
+						innerMenu.classList.add("s-show");
+					});
 
-				innerMenu.classList.remove('s-show')
-			})
-		});
+					element.addEventListener("mouseleave", () => {
+						let innerMenu = element.querySelector(".sub-menu");
 
+						innerMenu.classList.remove("s-show");
+					});
+				});
+			} else {
+				dropdown.forEach((element) => {
+					element.removeEventListener("mouseover", () => {});
+					element.removeEventListener("mouseleave", () => {});
+					element.addEventListener("click", () => {
+						element.classList.toggle("open");
+						let innerMenu = element.querySelector(".sub-menu");
+
+						innerMenu.classList.toggle("s-show-mobile");
+					});
+
+					element.addEventListener("mouseleave", () => {
+						element.classList.remove("open");
+						let innerMenu = element.querySelector(".sub-menu");
+
+						innerMenu.classList.remove("s-show-mobile");
+					});
+				});
+			}
+		}
+
+		// initial state
+		mqHandler(mqLarge);
 	},
 };
